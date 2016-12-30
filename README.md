@@ -4,7 +4,7 @@ Setup
 =====
 
 ```
-opkg update && opkg install git git-http python mjpg-streamer
-git clone <<this repo>>
+opkg update && opkg install git python mjpg-streamer
+git clone git://github.com/bikegriffith/onion-omega2-garage-door-webcam
 ...
 ```
