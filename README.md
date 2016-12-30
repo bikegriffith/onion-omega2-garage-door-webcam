@@ -17,16 +17,17 @@ Installation
 
 ```
 # Log into your Omega2 via the terminal, then checkout the code
-opkg update && opkg install git python mjpg-streamer
+opkg update && opkg install git python
 git clone git://github.com/bikegriffith/onion-omega2-garage-door-webcam
 ...
 ```
 
 Notes
 =====
-* Streaming
+* Streaming from webcam
 
     ```
+    > opkg install mjpg-streamer
     > mjpg_streamer mjpg_streamer -i "input_uvc.so -d /dev/video0 -y" -o "output_http.so"
     open http://192.168.1.15:8080/?action=stream
     ```
