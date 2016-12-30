@@ -17,7 +17,7 @@ Installation
 
 ```
 # Log into your Omega2 via the terminal, then checkout the code
-opkg update && opkg install git python
+opkg update && opkg install git python pyOnionGpio
 git clone git://github.com/bikegriffith/onion-omega2-garage-door-webcam
 ...
 ```
