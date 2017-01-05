@@ -24,10 +24,18 @@ git clone git://github.com/bikegriffith/onion-omega2-garage-door-webcam
 
 Notes
 =====
-* Streaming from webcam
+* Image capture from webcam
 
     ```
-    > opkg install mjpg-streamer
-    > mjpg_streamer mjpg_streamer -i "input_uvc.so -d /dev/video0 -y" -o "output_http.so"
+    opkg install mjpg-streamer
+    mjpg_streamer mjpg_streamer -i "input_uvc.so -d /dev/video0 -y" -o "output_http.so"
     open http://192.168.1.15:8080/?action=stream
+    ```
+
+    alternatively
+    
+    ```
+    opkg install v4l-utils
+    v4l2-ctl --list-devices
+    
     ```
