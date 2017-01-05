@@ -8,19 +8,20 @@ Parts
 * Onion Omega2
 * Onion expansion dock
 * 5v relay
-* Power supply
-* Cleapo 1.3 MP WebCam with night vision (Gear Head WC1300BLK)
-* ...
+* Magnetic switch
+* Cheapo 1.3 MP WebCam with night vision (Gear Head WC1300BLK)
+* Wire, power supply, etc.
 
 Installation
 ============
 
 ```
 # Log into your Omega2 via the terminal, then checkout the code
-opkg update && opkg install git python pyOnionGpio
 git clone git://github.com/bikegriffith/onion-omega2-garage-door-webcam
-...
+opkg install make && make install
 ```
+
+Restart your Omega and make sure you can access the web server at http://onion-####.local (replace #### with your serial).
 
 Notes
 =====
