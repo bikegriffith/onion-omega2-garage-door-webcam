@@ -8,9 +8,9 @@ Parts
 * Onion Omega2
 * Onion expansion dock
 * 5v relay
-* Power supply
-* Cleapo 1.3 MP WebCam with night vision (Gear Head WC1300BLK)
-* ...
+* Magnetic switch
+* Cheapo 1.3 MP WebCam with night vision (Gear Head WC1300BLK)
+* Wire, power supply, etc.
 
 Installation
 ============
