@@ -17,10 +17,11 @@ Installation
 
 ```
 # Log into your Omega2 via the terminal, then checkout the code
-opkg update && opkg install git python pyOnionGpio
 git clone git://github.com/bikegriffith/onion-omega2-garage-door-webcam
-...
+opkg install make && make install
 ```
+
+Restart your Omega and make sure you can access the web server at http://onion-####.local (replace #### with your serial).
 
 Notes
 =====
