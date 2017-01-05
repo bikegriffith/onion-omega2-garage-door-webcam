@@ -1,7 +1,7 @@
 default: run
 
 run:
-	FLASK_APP=app/main.py python -m flask run --host=0.0.0.0
+	FLASK_APP=app/main.py FLASK_DEBUG=1 python -m flask run --host=0.0.0.0
 
 install:
 	opkg update && opkg install git git-http python python-pip pyOnionGpio

@@ -2,82 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Omega Garage</title>
-  <style>
-/*------------------------------------*\
-    RESET
-\*------------------------------------*/
-/* http://meyerweb.com/eric/tools/css/reset/ 
-    v2.0b1 | 201101 
-    NOTE:WORK IN PROGRESS
-    USE WITH CAUTION AND TEST WITH ABANDON */
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Griffith Garage</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<style>
+body {
+  background:#eee;
+}
+.container {
+  background: #fff;
+  max-width:500px;
+  margin:0 auto;
+  padding-bottom:15px;
+  border:1px solid #ddd;
+}
+navbar {
+  display: block;
+  background: #333;
+  color: #fff;
+  text-align: center;
+}
+navbar h1 {
+  margin:0; padding:5px;
+}
+.status {
+  text-align: center;
+}
+</style>
 
-html,body,div,span,applet,object,iframe,
-h1,h2,h3,h4,h5,h6,p,blockquote,pre,
-a,abbr,acronym,address,big,cite,code,
-del,dfn,em,img,ins,kbd,q,s,samp,
-small,strike,strong,sub,sup,tt,var,
-b,u,i,center,
-dl,dt,dd,ol,ul,li,
-fieldset,form,label,legend,
-table,caption,tbody,tfoot,thead,tr,th,td,
-article,aside,canvas,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section,summary,
-time,mark,audio,video{
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    font:inherit;
-    vertical-align:baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section{
-    display:block;
-}
-body{
-    line-height:1;
-}
-ol,ul{
-    list-style:none;
-}
-blockquote,q{
-    quotes:none;
-}
-blockquote:before,blockquote:after,
-q:before,q:after{
-    content:’’;
-    content:none;
-}
-/* remember to define visible focus styles! 
-:focus{
-    outline:?????;
-} */
+<script>
+$(function() {
+  setInterval(checkStatus, 2000);
+  checkStatus();
+});
 
-/* remember to highlight inserts somehow! */
-ins{
-    text-decoration:none;
-}
-del{
-    text-decoration:line-through;
+function checkStatus() {
+  $.get('/api/status', function(response) {
+    console.log(arguments);
+    var isOpen = parseInt(response, 10);
+    $('#status').html(isOpen ? 'Open' : 'Closed');
+    $('#open')[isOpen?'hide':'show']();
+    $('#close')[isOpen?'show':'hide']();
+  });
 }
 
-table{
-    border-collapse:collapse;
-    border-spacing:0;
+function openGarage() {
+  $('button').attr('disabled', 'disabled');
+  $.post('/api/open', {}, function(response) {
+    $('button').attr('disabled', null);
+    checkStatus();
+  });
 }
 
-
-/*------------------------------------*\
-    $MAIN
-\*------------------------------------*/
-  </style> 
+function closeGarage() {
+  $('button').attr('disabled', 'disabled');
+  $.post('/api/close', {}, function(response) {
+    $('button').attr('disabled', null);
+    checkStatus();
+  });
+}
+</script>
 </head>
 <body>
 
-<h1>Omega Garage</h1>
+<div class="container">
+
+<navbar>
+  <h1>Griffith Garage</h1>
+</navbar>
+
+<main>
+  <div class="status">
+    <p class="help-block"><small>Garage is Currently</small></p>
+    <h2 id="status"></h2>
+  </div>
+  <button id="open" class="btn btn-lg btn-block" onclick="openGarage()">Open Garage</button>
+  <button id="close" class="btn btn-lg btn-block" onclick="closeGarage()">Close Garage</button>
+</main>
+
+</div>
 
 </body>
 </html>
