@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Griffith Garage</title>
+  <title>Griffith IoT Garage</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -24,12 +24,22 @@ navbar {
   background: #333;
   color: #fff;
   text-align: center;
+  margin:0 -15px;
 }
 navbar h1 {
-  margin:0; padding:5px;
+  font-size:1.5em;
+  margin:0;
+  padding:15px 0;
 }
 .status {
+  margin: 40px 0 80px;
   text-align: center;
+}
+.status p {
+  margin-bottom:0;
+}
+.status h2 {
+ margin-top: 10px;
 }
 </style>
 
@@ -71,7 +81,7 @@ function closeGarage() {
 <div class="container">
 
 <navbar>
-  <h1>Griffith Garage</h1>
+  <h1>Griffith IoT Garage</h1>
 </navbar>
 
 <main>
@@ -79,8 +89,8 @@ function closeGarage() {
     <p class="help-block"><small>Garage is Currently</small></p>
     <h2 id="status"></h2>
   </div>
-  <button id="open" class="btn btn-lg btn-block" onclick="openGarage()">Open Garage</button>
-  <button id="close" class="btn btn-lg btn-block" onclick="closeGarage()">Close Garage</button>
+  <button id="open" class="btn btn-info btn-lg btn-block" onclick="openGarage()">Open Garage</button>
+  <button id="close" class="btn btn-danger btn-lg btn-block" onclick="closeGarage()">Close Garage</button>
 </main>
 
 </div>
