@@ -6,4 +6,5 @@ run:
 install:
 	opkg update && opkg install git git-http python python-pip pyOnionGpio
 	pip install -r requirements.txt
-	# echo "cd /root/onion-omega2-garage-door-webcam && make" > /etc/rc.local
+	# echo "cd /root/onion-omega2-garage-door-webcam && screen -d -m make" > /etc/rc.local
+	# echo "exit 0" >> /etc/rc.local
